@@ -297,5 +297,20 @@ int main()
 	  playing = false; // break out of the while loop
 	}
     }
+
+  // delete stuff created on the heap
+  for(vector<Room*>:: iterator it = roomList.begin(); it != roomList.end(); it++)
+    {
+      delete (*it)->description;
+      delete (*it);
+      roomList.erase(it);
+    }
+  
+    for(vector<Room*>:: iterator it = inventory.begin(); it != inventory.end(); it++)
+    {
+      delete (*it);
+      inventory.erase(it);
+    }
+
 }
 
