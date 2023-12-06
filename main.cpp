@@ -3,6 +3,7 @@
 #include <cstring>
 #include <vector>
 #include "room.h"
+#include "item.h"
 using namespace std;
 
 
@@ -303,13 +304,11 @@ int main()
     {
       delete (*it)->description;
       delete (*it);
-      roomList.erase(it);
     }
   
-    for(vector<Room*>:: iterator it = inventory.begin(); it != inventory.end(); it++)
+    for(vector<Item*>:: iterator it = inventory.begin(); it != inventory.end(); it++)
     {
       delete (*it);
-      inventory.erase(it);
     }
 
 }
