@@ -35,6 +35,16 @@ void Room::printExits() // prints all possible exits
     }
 }
 
+// prints out items in the room
+void Room::printItems()
+{
+  for (vector<Item*>::iterator it = roomItems.begin(); it != roomItems.end(); it++)
+    {
+      cout << (*it)->description << endl; // prints out the description                   
+    }
+}
+
+
 // checks if the input command has an exit
 Room* Room::getExit(char* input)
 {
@@ -45,6 +55,20 @@ Room* Room::getExit(char* input)
 	{
 	  return it->second; // return the room from that exit
 	}
+    }
+  return NULL;
+}
+
+// returns an item given a description
+Item* Room::getItem(char* input)
+{
+  cout << "" << endl;
+  for(vector<Item*>:: iterator it = roomItems.begin(); it != roomItems.end(); it++)
+    {
+      if(strcmp((*it)->description, input) == 0) // if the description matches an item     
+        {
+          return *it; // return the item                  
+        }
     }
   return NULL;
 }
